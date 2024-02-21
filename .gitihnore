@@ -1,8 +1,15 @@
-__pycache__/
-.venv/
-/dist/
-/build/
-.tox/
+venv/
+dist/
+**/.idea/
+__pycache__
 
-.pytest_cache/
+*.whl
+*.gz
+*.pyc
+*.iml
 
+.idea/*.iml
+coverage.xml
+
+.coverage
+.tool-versions
