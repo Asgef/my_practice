@@ -1,53 +1,56 @@
-# Longest Consecutive Ones with One Flip
+# Problem: Longest Consecutive Ones with One Flip
 #
 # Given an array consisting of zeroes and ones, write a function to find the
 # length of the longest consecutive sequence of ones in the array, with the
 # ability to flip one zero to one.
 #
 # Example:
-#
-# For the array [1,0,1], one flip is possible to obtain [1,1,1].
-# The length of the longest consecutive sequence of ones is 3.
+# For the array [1,0,1], one flip is possible to obtain [1,1,1]. The length
+# of the longest consecutive sequence of ones is 3.
 #
 # For the array [1,0,1,0,1,1], multiple options are possible:
+# 1. Flip the second element: [1,1,1,0,1,1]. The length of the consecutive
+#    sequence of ones is 3.
+# 2. Flip the fourth element: [1,0,1,1,1,1]. The length of the consecutive
+#    sequence of ones is also 3.
 #
-# Flip the second element: [1,1,1,0,1,1]. The length of the consecutive
-# sequence of ones is 4.
-# Flip the fourth element: [1,0,1,1,1,1]. The length of the consecutive
-# sequence of ones is also 4.
-# You are required to write a function max_consecutive_onesII(nums) which takes
-# the array nums as input and returns an integer representing the length of the
-# longest consecutive sequence of ones with one flip.
+# You are required to write a function max_consecutive_onesII(nums) which
+# takes the array nums as input and returns an integer representing the length
+# of the longest consecutive sequence of ones with one flip.
 #
 # Examples:
-#
-#
-# max_consecutive_onesII([1,0,1])  # Output: 3
-# max_consecutive_onesII([1,0,1,0,1,1])  # Output: 4
-# max_consecutive_onesII([1,1,1,0,1,1])  # Output: 3
-# max_consecutive_onesII([1,0,1,1,1,1])  # Output: 4
+# print(max_consecutive_onesII([1,0,1]))    # Output: 3
+# print(max_consecutive_onesII([1,0,1,0,1,1]))  # Output: 3
+# print(max_consecutive_onesII([1,1,1,0,1,1]))  # Output: 6
+# print(max_consecutive_onesII([1,0,1,1,1,1]))  # Output: 6
 
 
-# Самая длинная последовательность единиц с одним переворотом
+# Задача: Самая длинная последовательность единиц с одним переворотом
 #
 # Дан массив, состоящий из нулей и единиц. Необходимо написать функцию,
-# которая находит самую длинную последовательность единиц в массиве, при
-# условии, что есть возможность перевернуть один элемент с нуля на единицу.
+# которая находит длину самой длинной последовательности единиц в массиве,
+# с возможностью перевернуть один ноль в единицу.
 #
 # Пример:
-#
-# Для массива [1,0,1] возможно одно переключение, чтобы получить [1,1,1].
+# Для массива [1,0,1] одно переключение возможно для получения [1,1,1].
 # Длина самой длинной последовательности единиц равна 3.
 #
-# Для массива [1,0,1,0,1,1] возможны несколько вариантов:
+# Для массива [1,0,1,0,1,1] существует несколько вариантов:
+# 1. Переключить второй элемент: [1,1,1,0,1,1]. Длина последовательности
+#    единиц равна 3.
+# 2. Переключить четвёртый элемент: [1,0,1,1,1,1]. Длина последовательности
+#    единиц также равна 3.
 #
-# Переключить второй элемент: [1,1,1,0,1,1]. Длина последовательности
-# единиц равна 4.
-# Переключить четвёртый элемент: [1,0,1,1,1,1]. Длина последовательности
-# единиц также равна 4.
 # Требуется написать функцию max_consecutive_onesII(nums), которая принимает
-# массив nums и возвращает целое число, представляющее длину самой длинной
-# последовательности единиц с одним переворотом.
+# массив nums в качестве входных данных и возвращает целое число, представляющее
+# длину самой длинной последовательности единиц с одним переворотом.
+#
+# Примеры:
+# print(max_consecutive_onesII([1,0,1]))    # Вывод: 3
+# print(max_consecutive_onesII([1,0,1,0,1,1]))  # Вывод: 3
+# print(max_consecutive_onesII([1,1,1,0,1,1]))  # Вывод: 6
+# print(max_consecutive_onesII([1,0,1,1,1,1]))  # Вывод: 6
+
 
 
 def max_consecutive_onesII(nums):
@@ -70,3 +73,8 @@ def max_consecutive_onesII(nums):
     else:
         result = max(pointer_head - pointer_tail, result)
     return result
+
+
+                                    #
+print(max_consecutive_onesII([0, 0, 0, 1, 1, 1, 1, 0, 0, 1]))
+                              #
