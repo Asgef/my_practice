@@ -25,4 +25,8 @@
 
 
 def can_attend(schedule):
-  pass
+    meetings = sorted(schedule)
+    for i in range(1, len(meetings)):
+        if meetings[i][0] < meetings[i-1][1]:
+            return False
+    return True
