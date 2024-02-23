@@ -20,7 +20,7 @@
 #
 # Examples:
 # print(max_consecutive_onesII([1,0,1]))    # Output: 3
-# print(max_consecutive_onesII([1,0,1,0,1,1]))  # Output: 3
+# print(max_consecutive_onesII([1,0,1,0,1,1]))  # Output: 4
 # print(max_consecutive_onesII([1,1,1,0,1,1]))  # Output: 6
 # print(max_consecutive_onesII([1,0,1,1,1,1]))  # Output: 6
 
@@ -47,35 +47,21 @@
 #
 # Примеры:
 # print(max_consecutive_onesII([1,0,1]))    # Вывод: 3
-# print(max_consecutive_onesII([1,0,1,0,1,1]))  # Вывод: 3
+# print(max_consecutive_onesII([1,0,1,0,1,1]))  # Вывод: 4
 # print(max_consecutive_onesII([1,1,1,0,1,1]))  # Вывод: 6
 # print(max_consecutive_onesII([1,0,1,1,1,1]))  # Вывод: 6
 
 
-
-
 def max_consecutive_onesII(nums):
-    pointer_head = 0
-    pointer_tail = 0
-    count_null = 0
-    coup_site = 0
     result = 0
-    for idx, elem in enumerate(nums):
-        pointer_head = idx
+    current_length = 0
+    count_ones_before_flip = 0
+    for elem in nums:
         if elem == 1:
-            continue
-        elif elem == 0:
-            result = max(pointer_head - pointer_tail, result)
-            count_null += 1
-            pointer_tail = coup_site
-            coup_site = idx
-    if count_null == 1:
-        result = max(pointer_head - coup_site, result)
-    else:
-        result = max(pointer_head - pointer_tail, result)
+            current_length += 1
+        else:  # elem == 0
+            result = max(result, count_ones_before_flip + current_length + 1)
+            count_ones_before_flip = current_length
+            current_length = 0
+    result = max(result, count_ones_before_flip + current_length + 1)
     return result
-
-
-                                    #
-print(max_consecutive_onesII([0, 0, 0, 1, 1, 1, 1, 0, 0, 1]))
-                              #
