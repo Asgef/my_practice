@@ -75,12 +75,12 @@ asdf install nodejs latest
 
 
 # Установка PostgreSQL и настройка пользователя и базы данных
-# sudo apt install -y postgresql
+sudo apt install -y postgresql
 # sudo systemctl start postgresql
 # sudo systemctl enable postgresql
 
 # Создание пользователя и базы данных, если они еще не существуют
-# sudo -u postgres psql -c "SELECT 1 FROM pg_roles WHERE rolname='vagrant'" | grep -q 1 || sudo -u postgres createuser --createdb vagrant
+sudo -u postgres psql -c "SELECT 1 FROM pg_roles WHERE rolname='vagrant'" | grep -q 1 || sudo -u postgres createuser --createdb vagrant
 # sudo -u postgres psql -lqt | cut -d \| -f 1 | grep -qw hexlet || sudo -u postgres createdb --owner=vagrant hexlet
 
 # Версии ПО
