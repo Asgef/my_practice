@@ -43,13 +43,14 @@
 
 def solution(data):
     result = []
-    word = ''
     state = 'outside_word'  # inside_word
+
     for string in data:
-        print(string)
-        for char in range(len(string)):
-            symbol = string[char]
-            print(symbol)
+        word = ''
+
+        for idx in range(len(string)):
+            symbol = string[idx]
+
             if state == 'inside_word':
                 if symbol == ' ' or symbol == '\n':
                     result.append(word)
@@ -59,22 +60,13 @@ def solution(data):
                 word += symbol
 
             elif state == 'outside_word':
-                if symbol == ' ' or symbol == '\n':
-                    print('continue')
-                    continue
-                else:
+                if symbol != ' ' and symbol != '\n':
                     state = 'inside_word'
                     word += symbol
-    if word:
-        result.append(word)
+                else:
+                    continue
+
+        if word:
+            result.append(word)
+
     return result
-
-
-# data = [
-#         '\n\n  hi   \n',
-#         'hi how are you doing?\n',
-#         ' hello',
-#     ]
-#
-#
-# print(solution(data))
