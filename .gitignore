@@ -2,6 +2,7 @@ venv/
 dist/
 **/.idea/
 __pycache__/
+**/.vagrant/
 
 *.whl
 *.gz
