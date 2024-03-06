@@ -4,6 +4,7 @@ dist/
 __pycache__/
 **/.vagrant/
 
+*.log
 *.whl
 *.gz
 *.pyc
