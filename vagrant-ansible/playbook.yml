@@ -1,0 +1,10 @@
+- hosts: app_servers
+  tasks:
+    - name: install cowsay
+      ansible.builtin.apt:
+        name: cowsay
+        state: present
+        update_cache: yes
+        force_apt_get: yes
+      become: yes
+      become_user: vagr
