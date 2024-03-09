@@ -1,10 +1,10 @@
 - hosts: app_servers
   tasks:
     - name: install cowsay
-      ansible.builtin.apt:
-        name: cowsay
-        state: present
-        update_cache: yes
-        force_apt_get: yes
+      apt: name=cowsay state=present update_cache=yes
       become: yes
-      become_user: vagr
+      #ansible_ssh_private_key_file: /hone/asgef/.ssh/id_rsa
+
+    - name: uninstall cowsay
+      apt: name=cowsay state=absent
+      become: yes
