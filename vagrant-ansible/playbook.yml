@@ -1,10 +1,44 @@
 - hosts: app_servers
+  become: yes
   tasks:
+    - name: update apt
+      apt: update_cache=yes
+      # become: yes
+      tags: install
+
     - name: install cowsay
-      apt: name=cowsay state=present update_cache=yes
-      become: yes
-      #ansible_ssh_private_key_file: /hone/asgef/.ssh/id_rsa
+      apt: name=cowsay state=present
+      # become: yes
+      tags: install
 
     - name: uninstall cowsay
       apt: name=cowsay state=absent
-      become: yes
+      # become: yes
+
+    - name: install git
+      apt: name=git state=present
+      # become: yes
+      tags: install
+
+    - name: install make
+      apt: name=make state=present
+      # become: yes
+      tags: install
+
+    - name: install nodejs
+      apt: name=nodejs state=present
+      # become: yes
+      tags: install
+
+    - name: Add user 'Arya'
+      user: name=arya shell=/bin/bash state=present
+      tags: user
+
+    - name: Add user 'Sansa'
+      user: name=sansa shell=/bin/bash state=present
+      tags: user
+
+    - name: Add user 'Tirion'
+      user: name=tirion shell=/bin/bash state=present
+      tags: user
+    
