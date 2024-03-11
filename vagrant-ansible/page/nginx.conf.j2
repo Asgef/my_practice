@@ -1,0 +1,12 @@
+events {}
+
+http {
+  server {
+    listen 8000;
+    server_name localhost;
+    root /var/tmp/www;
+    location / {
+      try_files $uri $uri/ =404;
+    }
+  }
+}
