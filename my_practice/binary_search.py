@@ -1,12 +1,14 @@
 # Task: Binary Search
-# Given a sorted array of integers and a target value, return the index of the target
+# Given a sorted array of integers and a target value,
+# return the index of the target
 # if found, or -1 if it is not present in the array.
 # Example 1: Input: nums = [-5, 2, 4, 6, 9], target = 4, Output: 2
 # Example 2: Input: nums = [1, 2, 3, 4, 5], target = 6, Output: -1
 
 
 # Задача: Бинарный поиск
-# Дан отсортированный массив целых чисел и целевое значение, вернуть индекс цели,
+# Дан отсортированный массив целых чисел и целевое значение,
+# вернуть индекс цели,
 # если она найдена, или -1, если её нет в массиве.
 # Пример 1: Вход: nums = [-5, 2, 4, 6, 9], цель = 4, Вывод: 2
 # Пример 2: Вход: nums = [1, 2, 3, 4, 5], цель = 6, Вывод: -1
