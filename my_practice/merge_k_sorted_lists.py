@@ -55,6 +55,22 @@
 # Вывод: []
 
 
+import heapq
+
 
 def merge_lists(lists):
-    pass
+    min_heap = []
+    result = []
+
+    for idx, list_ in enumerate(lists):
+        if list_:
+            heapq.heappush(min_heap, (list_[0], idx, 0))
+
+    while min_heap:
+        value, list_idx, elem_idx = heapq.heappop(min_heap)
+        result.append(value)
+        if elem_idx + 1 < len(lists[list_idx]):
+            next_elem = lists[list_idx][elem_idx + 1]
+            heapq.heappush(min_heap, (next_elem, list_idx, elem_idx + 1))
+
+    return result
