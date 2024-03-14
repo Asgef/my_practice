@@ -1,44 +1,29 @@
 - hosts: app_servers
   vars:
     nginx_port: 8000
-    root_dir: /var/tmp/www
-    nginx_config: "{{ root_dir }}/nginx.conf"
   become: yes
   tasks:
-    - name: Ensure Nginx root directory exists
-      ansible.builtin.file:
-        path: "{{ root_dir }}"
-        state: directory
-        mode: '0755'
-
-    - name: Install nginx
+    - name: install nginx
       ansible.builtin.apt:
         name: nginx
         state: latest
-      notify: stop nginx
 
-    - name: Update nginx.conf
-      ansible.builtin.copy:
+    - name: update nginx.conf
+      ansible.builtin.template:
         src: page/nginx.conf.j2
-        dest: "{{ nginx_config }}"
-      notify: 
+        dest: /etc/nginx/nginx.conf
+      notify:
         - restart nginx
 
-    - name: Update index.html
+    - name: update index.html
       ansible.builtin.copy:
         src: page/index.html
-        dest: "{{ root_dir }}/index.html"
-      notify: 
+        dest: /usr/share/nginx/html/index.html
+      notify:
         - restart nginx
 
   handlers:
-    - name: stop nginx
-      ansible.builtin.service:
-        name: nginx
-        state: stopped
-
-    - name: restart nginx
-      ansible.builtin.shell: 
-        cmd: nginx -c {{ nginx_config }}
-      args:
-        executable: /bin/bash
+      - name: restart nginx
+        ansible.builtin.service:
+          name: nginx
+          state: reloaded
