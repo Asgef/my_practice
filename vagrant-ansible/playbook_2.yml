@@ -16,7 +16,7 @@
         - restart nginx
 
     - name: update index.html
-      ansible.builtin.copy:
+      ansible.builtin.template:
         src: page/index.html
         dest: /usr/share/nginx/html/index.html
       notify:
