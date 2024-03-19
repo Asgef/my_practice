@@ -3,10 +3,23 @@
     nginx_port: 8000
   become: yes
   tasks:
-    - name: install nginx
+    - name: install packages
       ansible.builtin.apt:
-        name: nginx
+        name: "{{ item }}"
         state: latest
+      loop:
+        - redis-server
+        - postgresql
+        - nginx
+
+    - name: add test users
+      ansible.builtin.user:
+        name: "{{ item.name }}"
+        state: present
+        groups: "{{ item.groups }}"
+      loop:
+        - { name: testuser1, groups: wheel }
+        - { name: testuser2, groups: root }
 
     - name: update nginx.conf
       ansible.builtin.template:
