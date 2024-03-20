@@ -22,35 +22,31 @@
 # solution([10, 20, 0, -1], 'desc') # Возвращает [20, 10, 0, -1]
 
 
-def partition(items, left, right, pivot, compare):
-    while True:
+def quick_sort(items, direction='asc'):
+    def partition(array, left, right, pivot, comp):
+        while True:
+            while comp(array[left], pivot):
+                left += 1
+            while comp(pivot, array[right]):
+                right -= 1
 
-        while compare(items[left], pivot):
+            if left >= right:
+                return right + 1
+
+            array[left], array[right] = array[right], array[left]
             left += 1
-        while compare(pivot, items[right]):
             right -= 1
 
-        if left >= right:
-            return right + 1
+    def sort(array, left, right, comp):
+        length = right - left + 1
+        if length < 2:
+            return
+        pivot = array[left]
+        split_idx = partition(array, left, right, pivot, comp)
+        sort(array, left, split_idx - 1, comp)
+        sort(array, split_idx, right, comp)
 
-        items[left], items[right] = items[right], items[left]
-        left += 1
-        right -= 1
-
-
-def sort(items, left, right, compare):
-    length = right - left + 1
-    if length < 2:
-        return
-
-    pivot = items[left]
-    split_idx = partition(items, left, right, pivot, compare)
-    sort(items, left, split_idx - 1, compare)
-    sort(items, split_idx, right, compare)
-
-
-def solution(items, direction='asc'):
-    result = items[:]
+    cp_items = items[:]
     compare = lambda a, b: a < b if direction == 'asc' else a > b
-    sort(result, 0, len(items) - 1, compare)
-    return result
+    sort(cp_items, 0, len(items) - 1, compare)
+    return cp_items
