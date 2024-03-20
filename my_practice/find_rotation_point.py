@@ -1,5 +1,6 @@
 # Problem: Find Rotation Point
-# Given a sorted array of unique integers that has been rotated at an unknown pivot,
+# Given a sorted array of unique integers that has been rotated
+# at an unknown pivot,
 # find and return the index of the minimum element (the rotation point).
 # Assume no duplicate elements exist in the array.
 # Example 1: Input: nums = [4, 5, 6, 7, 0, 1, 2], Output: 4
@@ -7,7 +8,8 @@
 
 
 # Задача: Найти точку вращения в отсортированном массиве
-# Дан отсортированный массив уникальных целых чисел, который был повернут в неизвестной точке,
+# Дан отсортированный массив уникальных целых чисел,
+# который был повернут в неизвестной точке,
 # найти и вернуть индекс минимального элемента (точку вращения).
 # Предполагается, что в массиве нет дублирующих элементов.
 # Пример 1: Вход: nums = [4, 5, 6, 7, 0, 1, 2], Вывод: 4
