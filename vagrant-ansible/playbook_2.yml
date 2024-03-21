@@ -18,7 +18,7 @@
         state: present
         groups: "{{ item.groups }}"
       loop:
-        - { name: testuser1, groups: wheel }
+        - { name: testuser1, groups: vagrant }
         - { name: testuser2, groups: root }
 
     - name: update nginx.conf
