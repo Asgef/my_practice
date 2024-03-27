@@ -8,7 +8,10 @@
 </head>
 <body>
   <h1>Hello World!</h1>
-  <h2>This is server {{ server_name }}!</h2>
+  <h2>{{ web_serv|upper }}</h2>
   <p>My memory is {{ansible_memtotal_mb}}</p>
+  <p>
+    <small>Deployed at: {{ current_date }}</small>
+  </p>
 </body>
 </html>
