@@ -3,7 +3,7 @@
     nginx_port: 8000
     web_serv: This is server {{ server_name }}!
     current_date: "{{ lookup('pipe', \"date '+%Y-%m-%d %H:%M:%S'\" ) }}"
-  # become: yes
+
   tasks:
     - name: install packages
       ansible.builtin.apt:
