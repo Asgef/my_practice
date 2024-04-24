@@ -11,6 +11,7 @@
         state: latest
       loop:
         - redis-server
+        - postgresql
         - nginx
         - cowsay
       become: yes
