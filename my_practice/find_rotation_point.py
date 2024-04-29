@@ -16,7 +16,7 @@
 # Пример 2: Вход: nums = [3, 4, 5, 1, 2], Вывод: 3
 
 
-def find_rotation_point(sequence):
+def find_rotation_point(sequence):  # noqa C901
     if not sequence:
         return -1
 

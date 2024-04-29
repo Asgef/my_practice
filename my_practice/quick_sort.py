@@ -22,7 +22,7 @@
 # solution([10, 20, 0, -1], 'desc') # Возвращает [20, 10, 0, -1]
 
 
-def quick_sort(items, direction='asc'):
+def quick_sort(items, direction='asc'):  # noqa C901
     def partition(array, left, right, pivot, comp):
         while True:
             while comp(array[left], pivot):
@@ -47,6 +47,6 @@ def quick_sort(items, direction='asc'):
         sort(array, split_idx, right, comp)
 
     cp_items = items[:]
-    compare = lambda a, b: a < b if direction == 'asc' else a > b
+    compare = lambda a, b: a < b if direction == 'asc' else a > b  # noqa E731
     sort(cp_items, 0, len(items) - 1, compare)
     return cp_items

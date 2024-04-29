@@ -1,0 +1,56 @@
+{
+  "value": 7,
+  "isRed": false,
+  "left": {
+    "value": 3,
+    "isRed": true,
+    "left": {
+      "value": 2,
+      "isRed": false,
+      "left": {
+        "value": 1,
+        "isRed": true
+      }
+    },
+    "right": {
+      "value": 5,
+      "isRed": false,
+      "left": {
+        "value": 4,
+        "isRed": true
+      },
+      "right": {
+        "value": 6,
+        "isRed": true
+      }
+    }
+  },
+  "right": {
+    "value": 11,
+    "isRed": true,
+    "left": {
+      "value": 9,
+      "isRed": false,
+      "left": {
+        "value": 8,
+        "isRed": true
+      },
+      "right": {
+        "value": 10,
+        "isRed": true
+      }
+    },
+    "right": {
+      "value": 13,
+      "isRed": false,
+      "left": {
+        "value": 12,
+        "isRed": true
+      },
+      "right": {
+        "value": 14,
+        "isRed": true
+      }
+    }
+  }
+}
