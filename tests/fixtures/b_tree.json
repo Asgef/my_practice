@@ -1,0 +1,69 @@
+{
+  "leaf": false,
+  "keys": [30,70],
+  "children": [
+    {
+      "leaf": false,
+      "keys": [8,25],
+      "children": [
+        {
+          "leaf": true,
+          "keys": [1,2,7],
+          "children": []
+        },
+        {
+          "leaf": true,
+          "keys": [15, 21, 23],
+          "children": []
+        },
+        {
+          "leaf": true,
+          "keys": [26, 28],
+          "children": []
+        }
+      ]
+    },
+    {
+      "leaf": false,
+      "keys": [40, 50],
+      "children": [
+        {
+          "leaf": true,
+          "keys": [35, 38],
+          "children": []
+        },
+        {
+          "leaf": true,
+          "keys": [42, 49],
+          "children": []
+        },
+        {
+          "leaf": true,
+          "keys": [56, 57],
+          "children": []
+        }
+      ]
+    },
+    {
+      "leaf": false,
+      "keys": [76, 88],
+      "children": [
+        {
+          "leaf": true,
+          "keys": [71, 73, 75],
+          "children": []
+        },
+        {
+          "leaf": true,
+          "keys": [77, 85],
+          "children": []
+        },
+        {
+          "leaf": true,
+          "keys": [89, 97],
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 from .tree_node import BinaryTreeNode
 from .tree_node import RBTreeNode
+from .tree_node import BTreeNode
 
 
 def sorted_array_to_BST(nums):
@@ -23,4 +24,13 @@ def build_RBTree(data):
     if 'right' in data and data['right']:
         root.right = build_RBTree(data['right'])
         root.right.parent = root
+    return root
+
+
+def buildBTree(data):
+    root = BTreeNode(data["keys"])
+    root.leaf = data["leaf"]
+    if not data["leaf"]:
+        for child in data["children"]:
+            root.children.append(buildBTree(child))
     return root

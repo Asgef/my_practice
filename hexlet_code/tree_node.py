@@ -12,3 +12,10 @@ class RBTreeNode:
         self.is_red = False
         self.parent = parent
         self.value = value
+
+
+class BTreeNode:
+    def __init__(self, keys):
+        self.leaf = False
+        self.keys = keys
+        self.children = []
