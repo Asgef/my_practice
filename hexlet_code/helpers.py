@@ -1,6 +1,6 @@
-from .tree_node import BinaryTreeNode
-from .tree_node import RBTreeNode
-from .tree_node import BTreeNode
+from .tree_node import (
+    BinaryTreeNode, RBTreeNode, BTreeNode, Trie
+)
 
 
 def sorted_array_to_BST(nums):
@@ -33,4 +33,16 @@ def buildBTree(data):
     if not data["leaf"]:
         for child in data["children"]:
             root.children.append(buildBTree(child))
+    return root
+
+
+def build_prefix_tree(words):
+    root = Trie(None)
+    for word in words:
+        node = root
+        for char in word:
+            if char not in node.children:
+                node.children[char] = Trie(char)
+            node = node.children[char]
+        node.end = True
     return root
