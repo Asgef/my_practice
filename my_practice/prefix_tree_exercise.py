@@ -1,7 +1,3 @@
-from hexlet_code.helpers import build_prefix_tree
-from itertools import chain
-
-
 # Реализуйте функцию find_words(), которая найдет в
 # префиксном дереве все слова, начинающиеся с указанного
 # префикса и вернет их в отсортированном по алфавиту виде.
@@ -10,7 +6,7 @@ from itertools import chain
 # # ['apprehend', 'appreciate', 'apprentice'];
 
 
-def find_words(tree, prefix):
+def find_words(tree, prefix):  # noqa C901
     result = []
 
     def find_prefix_node(tree, text):
