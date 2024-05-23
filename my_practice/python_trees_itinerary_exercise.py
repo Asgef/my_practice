@@ -81,5 +81,7 @@ def build_itinerary(tree, begin, end):
         else:
             break
 
-    path = path_to_begin[:general_path-1:-1] + path_to_end[general_path-1:]
+    path = path_to_begin[:general_path - 1:-1] + path_to_end[general_path - 1:]
     return path
+
+# TODO: Требуется переделать решение с применением графов.
