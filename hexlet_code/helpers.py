@@ -1,5 +1,5 @@
 from .tree_node import (
-    BinaryTreeNode, RBTreeNode, BTreeNode, Trie
+    BinaryTreeNode, RBTreeNode, BTreeNode, Trie, LinkedListNode
 )
 
 
@@ -46,3 +46,24 @@ def build_prefix_tree(words):
             node = node.children[char]
         node.end = True
     return root
+
+
+def list_to_linkedlist(lst):
+    """Helper function to convert a list to a linked list."""
+    dummy = LinkedListNode(0)
+    current = dummy
+
+    for value in lst:
+        current.next = LinkedListNode(value)
+        current = current.next
+    return dummy.next
+
+
+def linkedlist_to_list(node):
+    """Helper function to convert a linked list to a list."""
+    result = []
+
+    while node:
+        result.append(node.value)
+        node = node.next
+    return result

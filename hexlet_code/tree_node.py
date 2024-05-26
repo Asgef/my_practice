@@ -26,3 +26,9 @@ class Trie:
         self.key = key
         self.children = {}
         self.end = False
+
+
+class LinkedListNode(object):
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next

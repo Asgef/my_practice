@@ -56,21 +56,49 @@
 
 
 import heapq
+from hexlet_code.tree_node import LinkedListNode
+
+
+class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[LinkedListNode]
+        :rtype: LinkedListNode
+        """
+        min_heap = []
+        for idx, node in enumerate(lists):
+            if node:
+                heapq.heappush(min_heap, (node.value, idx, node))
+
+        dummy = LinkedListNode(0)
+        current = dummy
+
+        while min_heap:
+            value, idx, node = heapq.heappop(min_heap)
+            current.next = LinkedListNode(value)
+            current = current.next
+            if node.next:
+                heapq.heappush(min_heap, (node.next.value, idx, node.next))
+
+        return dummy.next
+
+
+# Functional style solution
 
 
 def merge_lists(lists):
     min_heap = []
     result = []
 
-    for idx, list_ in enumerate(lists):
-        if list_:
-            heapq.heappush(min_heap, (list_[0], idx, 0))
+    for idx, lst in enumerate(lists):
+        if lst:
+            heapq.heappush(min_heap, (lst[0], idx, 0))
 
     while min_heap:
-        value, list_idx, elem_idx = heapq.heappop(min_heap)
+        value, lst_idx, elem_idx = heapq.heappop(min_heap)
         result.append(value)
-        if elem_idx + 1 < len(lists[list_idx]):
-            next_elem = lists[list_idx][elem_idx + 1]
-            heapq.heappush(min_heap, (next_elem, list_idx, elem_idx + 1))
+        if elem_idx + 1 < len(lists[lst_idx]):
+            next_elem = lists[lst_idx][elem_idx + 1]
+            heapq.heappush(min_heap, (next_elem, lst_idx, elem_idx + 1))
 
     return result
