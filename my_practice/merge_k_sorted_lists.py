@@ -60,11 +60,8 @@ from hexlet_code.tree_node import LinkedListNode
 
 
 class Solution(object):
-    def mergeKLists(self, lists):
-        """
-        :type lists: List[LinkedListNode]
-        :rtype: LinkedListNode
-        """
+    def mergeKLists(self, lists: list[[LinkedListNode]]) -> LinkedListNode:
+
         min_heap = []
         for idx, node in enumerate(lists):
             if node:
