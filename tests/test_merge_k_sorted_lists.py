@@ -1,6 +1,5 @@
 from my_practice.merge_k_sorted_lists import merge_lists, Solution
 from hexlet_code.helpers import list_to_linkedlist, linkedlist_to_list
-from hexlet_code.tree_node import LinkedListNode
 
 
 def test_solution():

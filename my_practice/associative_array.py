@@ -39,7 +39,6 @@
 # get_(hash_table, 'key2', 'default')  # 'default'
 
 
-from hexlet_code.hash_table import make
 from zlib import crc32
 
 
