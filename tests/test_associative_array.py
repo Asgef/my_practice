@@ -9,6 +9,6 @@ def test_hash_table():
     assert get_(hash_table, 'key2', 'default') == 'default'
     assert set_(hash_table, 'key1', 'value2') is True
     assert get_(hash_table, 'key1') == 'value2'
-    assert set_(hash_table, 'key4', 'value4') is True
-    assert set_(hash_table, 'key6', 'value6') is False
-    assert get_(hash_table, 'key6', 'default') == 'default'
+    assert set_(hash_table, 'key25', 'value25') is True
+    assert set_(hash_table, 'key50', 'value50') is False
+    assert get_(hash_table, 'key50', 'default') == 'default'

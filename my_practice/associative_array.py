@@ -61,15 +61,11 @@ def get_(map, key, default=None):
 
 
 def get_index(key):
-    b_key = to_b_str(key)
-    return crc32(b_key) % 100
+    b_key = key.encode('utf-8')
+    return crc32(b_key) % 1000
 
 
 def has_collision(map, key):
     index = get_index(key)
     current_key, _ = map[index]
     return current_key != key
-
-
-def to_b_str(string):
-    return string.encode('utf-8')
