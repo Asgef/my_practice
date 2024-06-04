@@ -1,4 +1,4 @@
-# Task: "Convert DNA to RNA"
+# Problem: "Convert DNA to RNA"
 
 # DNA and RNA are sequences of nucleotides.
 #
