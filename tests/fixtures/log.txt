@@ -1,0 +1,5 @@
+INFO:root:Called __main__ with args: (4, 5), kwargs: {}
+INFO:root:Called sum with args: (4, 5), kwargs: {}
+INFO:root:Called sum with args: ('a', 'b'), kwargs: {}
+INFO:root:Called sum with args: ([1], [2]), kwargs: {}
+INFO:root:Called sum with args: (1, 2), kwargs: {}
