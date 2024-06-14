@@ -20,35 +20,68 @@ from typing import Optional
 from hexlet_code.tree_node import LinkedListNode
 
 
+# class Solution:
+#     def addTwoNumbers(
+#             self, l1: Optional[LinkedListNode], l2: Optional[LinkedListNode]
+#     ) -> Optional[LinkedListNode]:
+#
+#         digit = 0
+#         lst1 = l1
+#         lst2 = l2
+#
+#         result = LinkedListNode()
+#         head = result
+#
+#         while lst1 or lst2 or digit > 0:
+#
+#             lst1 = lst1 if lst1 else LinkedListNode()
+#             lst2 = lst2 if lst2 else LinkedListNode()
+#
+#             node_sum = lst1.value + lst2.value
+#             digit, head.value = divmod(node_sum + digit, 10)
+#
+#             lst1 = lst1.next
+#             lst2 = lst2.next
+#
+#             if not lst1 and not lst2 and digit == 0:
+#                 return result
+#
+#             head.next = LinkedListNode()
+#             head = head.next
+#
+#         return result
+
+# Повторить задачу, переписать по памяти решение из leetcode.
+
+
 class Solution:
     def addTwoNumbers(
             self, l1: Optional[LinkedListNode], l2: Optional[LinkedListNode]
     ) -> Optional[LinkedListNode]:
-        
-        digit = 0
-        lst1 = l1
-        lst2 = l2
 
-        result = LinkedListNode()
-        head = result
+        dummy = LinkedListNode
+        current = dummy
 
-        while lst1 or lst2 or digit > 0:
+        total = digit = 0
 
-            lst1 = lst1 if lst1 else LinkedListNode()
-            lst2 = lst2 if lst2 else LinkedListNode()
+        while l1 or l2 or digit > 0:
 
-            node_sum = lst1.value + lst2.value
-            digit, head.value = divmod(node_sum + digit, 10)
+            total = digit
 
-            lst1 = lst1.next
-            lst2 = lst2.next
+            if l1:
+                total += l1.value
+                l1 = l1.next
 
-            if not lst1 and not lst2 and digit == 0:
-                return result
-            
-            head.next = LinkedListNode()
-            head = head.next
+            if l2:
+                total += l2.value
+                l2 = l2.next
 
-        return result
+            result = total % 10
+            digit = total // 10
 
-# TODO: Повторить задачу, переписать по памяти решение из leetcode.
+            current.next = LinkedListNode(result)
+            current = current.next
+
+        return dummy.next
+
+# Сложение узлов связанного списка, десятичный разряд, перенос разряда числа
