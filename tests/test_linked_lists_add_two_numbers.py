@@ -7,16 +7,16 @@ def test_add_two_numbers():
     l1 = LinkedListNode(2)
     l1.next = LinkedListNode(4)
     l1.next.next = LinkedListNode(3)
-    
+
     # Creating nodes for the second number
     l2 = LinkedListNode(5)
     l2.next = LinkedListNode(6)
     l2.next.next = LinkedListNode(4)
-    
+
     # Adding the numbers
     solution = Solution()
     result = solution.addTwoNumbers(l1, l2)
-    
+
     # Checking the result
     assert result.value == 7
     assert result.next.value == 0

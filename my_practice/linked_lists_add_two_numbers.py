@@ -1,12 +1,12 @@
 # Task: "Add Two Numbers"
-# You are given two non-empty linked lists representing two non-negative 
-# integers. The digits are stored in reverse order, and each node contains a 
+# You are given two non-empty linked lists representing two non-negative
+# integers. The digits are stored in reverse order, and each node contains a
 # single digit. Add the two numbers and return the sum as a linked list.
 #
 
 # Задача: "Сложение двух чисел"
-# Даны два непустых связанных списка, представляющих два неотрицательных числа. 
-# Цифры хранятся в обратном порядке, и каждый узел содержит одну цифру. 
+# Даны два непустых связанных списка, представляющих два неотрицательных числа.
+# Цифры хранятся в обратном порядке, и каждый узел содержит одну цифру.
 # Сложите два числа и верните сумму как связанный список.
 #
 
