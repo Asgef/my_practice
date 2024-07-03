@@ -4,6 +4,7 @@
 # if found, or -1 if it is not present in the array.
 # Example 1: Input: nums = [-5, 2, 4, 6, 9], target = 4, Output: 2
 # Example 2: Input: nums = [1, 2, 3, 4, 5], target = 6, Output: -1
+from typing import List
 
 
 # Задача: Бинарный поиск
@@ -34,3 +35,26 @@ def binary_search(sequence, num):
             first = middle + 1
 
     return -1
+
+
+# For leetcode
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        sequence_len = len(nums)
+
+        if sequence_len == 0:
+            return -1
+
+        first = 0
+        last = sequence_len - 1
+
+        while first <= last:
+            middle = (first + last) // 2
+
+            if nums[middle] == target:
+                return middle
+            elif nums[middle] > target:
+                last = middle - 1
+            else:
+                first = middle + 1
+        return -1
