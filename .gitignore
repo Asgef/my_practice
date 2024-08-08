@@ -13,6 +13,6 @@ __pycache__/
 
 .idea/*.iml
 coverage.xml
-
+random_problem/
 .coverage
 .tool-versions
