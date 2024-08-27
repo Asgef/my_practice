@@ -22,7 +22,7 @@
 # solution([10, 20, 0, -1], 'desc') # Возвращает [20, 10, 0, -1]
 
 
-def quick_sort(items, direction='asc'):  # noqa C901
+def quick_sort(items: list, direction: str = 'asc') -> list:  # noqa C901
     def partition(array, left, right, pivot, comp):
         while True:
             while comp(array[left], pivot):
@@ -50,3 +50,41 @@ def quick_sort(items, direction='asc'):  # noqa C901
     compare = lambda a, b: a < b if direction == 'asc' else a > b  # noqa E731
     sort(cp_items, 0, len(items) - 1, compare)
     return cp_items
+
+
+def quick_sort_2(array: list, reverse: bool = False) -> list:
+    sorted_array = array[:]
+    cmpr = lambda a, b: a < b if reverse is False else a > b  # noqa E731
+
+    if len(sorted_array) == 0:
+        return sorted_array
+    pivot = sorted_array[0]
+
+    lower_array = [elmnt for elmnt in sorted_array if cmpr(elmnt, pivot)]
+    higher_array = [elmnt for elmnt in sorted_array if cmpr(pivot, elmnt)]
+    equal_array = [elmnt for elmnt in sorted_array if elmnt == pivot]
+
+    return (
+            quick_sort_2(lower_array, reverse) +
+            equal_array +
+            quick_sort_2(higher_array, reverse)
+    )
+
+
+def quick_sort_2(array: list, reverse: bool = False) -> list:  # noqa F811
+    sorted_array = array[:]
+    cmpr = lambda a, b: a < b if reverse is False else a > b  # noqa E731
+
+    if len(sorted_array) == 0:
+        return sorted_array
+    pivot = sorted_array[0]
+
+    lower_array = [elmnt for elmnt in sorted_array if cmpr(elmnt, pivot)]
+    higher_array = [elmnt for elmnt in sorted_array if cmpr(pivot, elmnt)]
+    equal_array = [elmnt for elmnt in sorted_array if elmnt == pivot]
+
+    return (
+            quick_sort_2(lower_array, reverse) +
+            equal_array +
+            quick_sort_2(higher_array, reverse)
+    )
