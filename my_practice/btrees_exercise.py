@@ -3,7 +3,7 @@ from hexlet_code.helpers import buildBTree
 
 # Вам предстоит поработать с B-деревом.
 # Напишите функцию, которая найдет в B-дереве все значения,
-# находящиеся в заданном
+# находящиеся в заданном диапазоне
 #
 # find_values_in_range(items, 30, 50)
 # ## [31, 41, 47]
@@ -23,7 +23,7 @@ def find_values_in_range(items, min, max):
                 None, map(lambda child: walk(child, min, max), node.children)
             ))
             result.extend(children)
-            return
+
     walk(items, min, max)
     result.sort()
 
