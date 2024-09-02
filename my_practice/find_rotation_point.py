@@ -16,26 +16,24 @@
 # Пример 2: Вход: nums = [3, 4, 5, 1, 2], Вывод: 3
 
 
-def find_rotation_point(sequence):  # noqa C901
+def find_rotation_point(sequence: list) -> int:  # noqa C901
     if not sequence:
-        return -1
+        return - 1
 
     first, last = 0, len(sequence) - 1
 
-    if sequence[first] < sequence[last]:
+    if sequence[first] < sequence[last] or len(sequence) == 1:
         return 0
 
-    while first <= last:
+    while True:
         mid = (first + last) // 2
 
-        if mid + 1 < len(sequence) and sequence[mid] > sequence[mid + 1]:
+        if sequence[mid] > sequence[mid + 1]:
             return mid + 1
-        if mid - 1 >= 0 and sequence[mid - 1] > sequence[mid]:
+        if sequence[mid] < sequence[mid - 1]:
             return mid
 
-        if sequence[mid] > sequence[last]:
-            first = mid + 1
+        if sequence[mid] < sequence[first]:
+            last = mid
         else:
-            last = mid - 1
-
-    return -1
+            first = mid
