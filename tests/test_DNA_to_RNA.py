@@ -3,7 +3,7 @@ from my_practice.DNA_to_RNA import to_rna  # to_rna_
 # import os
 
 
-def _to_rna():
+def test_to_rna():
     assert to_rna("C") == "G"
     assert to_rna("G") == "C"
     assert to_rna("T") == "A"

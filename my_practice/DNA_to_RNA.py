@@ -52,8 +52,8 @@
 # соответствующую цепь РНК (совершает транскрипцию ДНК).
 
 
-# Example:
-# dna.to_rna('ACGTGGTCTTAA')  # 'UGCACCAGAAUU'
+# # Example:
+# # dna.to_rna('ACGTGGTCTTAA')  # 'UGCACCAGAAUU'
 
 
 MAPPING = {
@@ -74,8 +74,8 @@ def to_rna(dna):
 # Решение учителя:
 
 
-def to_rna_(dna):
-    return ''.join(map(MAPPING.get, dna))
+# def to_rna(dna: str) -> str:
+#     return ''.join(map(MAPPING.get, dna))
 #  Данная функция работает немного быстрей
 
 # Шаблон - диспетчеризация, map()
