@@ -17,6 +17,7 @@
 # // ];
 #
 # The solution must be finite automaton-based.
+from tests.test_prefix_tree_exercise import words
 
 
 # Задача: Автоматный лексер
@@ -70,3 +71,48 @@ def solution(data):
             result.append(word)
 
     return result
+
+
+def lexer(text: str) -> list:
+    result = []
+    text_array = []
+    state = 'outside_word'  # inside_word
+    word_ln = ''
+
+    for char in text:
+        if char == '\n':
+            text_array.append(word_ln)
+            word_ln = ''
+        else:
+            word_ln += char
+    text_array.append(word_ln)
+
+
+    for line in text_array:
+        word = ''
+        for idx in range(len(line)):
+            symbol = line[idx]
+
+            if state == 'inside_word':
+                if symbol == ' ':
+                    result.append(word)
+                    word = ''
+                    state = 'outside_word'
+                    break
+                word += symbol
+
+            elif state == 'outside_word':
+                if symbol != ' ':
+                    state = 'inside_word'
+                    word += symbol
+                else:
+                    continue
+        state = 'outside_word'
+
+
+        if word:
+            result.append(word)
+
+    return result
+
+# TODO: Требуется пересмотреть решение
