@@ -60,3 +60,5 @@ class Solution:
                 first = mid + 1
 
         return nums[last]
+
+# бинарный поиск.
