@@ -52,39 +52,28 @@ def quick_sort(items: list, direction: str = 'asc') -> list:  # noqa C901
     return cp_items
 
 
-def quick_sort_2(array: list, reverse: bool = False) -> list:
-    sorted_array = array[:]
-    cmpr = lambda a, b: a < b if reverse is False else a > b  # noqa E731
-
-    if len(sorted_array) == 0:
-        return sorted_array
-    pivot = sorted_array[0]
-
-    lower_array = [elmnt for elmnt in sorted_array if cmpr(elmnt, pivot)]
-    higher_array = [elmnt for elmnt in sorted_array if cmpr(pivot, elmnt)]
-    equal_array = [elmnt for elmnt in sorted_array if elmnt == pivot]
-
-    return (
-            quick_sort_2(lower_array, reverse) +
-            equal_array +
-            quick_sort_2(higher_array, reverse)
-    )
-
-
 def quick_sort_2(array: list, reverse: bool = False) -> list:  # noqa F811
-    sorted_array = array[:]
-    cmpr = lambda a, b: a < b if reverse is False else a > b  # noqa E731
+    cp_array = array[:]
+    cmpr = lambda a_arg, b_arg: a_arg < b_arg \
+        if reverse is False else a_arg > b_arg  # noqa E731
 
-    if len(sorted_array) == 0:
-        return sorted_array
-    pivot = sorted_array[0]
+    if len(cp_array) <= 1:
+        return cp_array
 
-    lower_array = [elmnt for elmnt in sorted_array if cmpr(elmnt, pivot)]
-    higher_array = [elmnt for elmnt in sorted_array if cmpr(pivot, elmnt)]
-    equal_array = [elmnt for elmnt in sorted_array if elmnt == pivot]
+    pivot = cp_array[len(cp_array) // 2]
+    lower_arr = []
+    higher_arr = []
+    equal_arr = []
+
+    for elmt in cp_array:
+        if cmpr(elmt, pivot):
+            lower_arr.append(elmt)
+        elif cmpr(pivot, elmt):
+            higher_arr.append(elmt)
+        else:
+            equal_arr.append(elmt)
 
     return (
-            quick_sort_2(lower_array, reverse) +
-            equal_array +
-            quick_sort_2(higher_array, reverse)
+            quick_sort_2(lower_arr, reverse) + equal_arr +
+            quick_sort_2(higher_arr, reverse)
     )
