@@ -61,3 +61,5 @@ class Solution:
                 return True
 
         return False
+
+# Связный список, Linced list, нахождение цикла. Алгоритм черепахи и заца.
