@@ -40,32 +40,33 @@
 
 
 from zlib import crc32
+from typing import Optional
+from hexlet_code.hash_table import make
 
 
-def set_(map, key, value):
-    index = get_index(key)
+def set_(map: make, key: str, value: str) -> bool:
+    idx = get_index(key)
 
-    if map[index] and has_collision(map, key):
+    if map[idx] and has_collisions(map, key):
         return False
-    map[index] = key, value
+    map[idx] = key, value
     return True
 
 
-def get_(map, key, default=None):
-    index = get_index(key)
+def get_(map: make, key: str, default: Optional[str] = None) -> Optional[str]:
+    idx = get_index(key)
 
-    if not map[index] or has_collision(map, key):
+    if not map[idx] or has_collisions(map, key):
         return default
+    return map[idx][1]
 
-    return map[index][1]
 
-
-def get_index(key):
+def get_index(key: str) -> int:
     b_key = key.encode('utf-8')
     return crc32(b_key) % 1000
 
 
-def has_collision(map, key):
-    index = get_index(key)
-    current_key, _ = map[index]
+def has_collisions(map, key: str) -> bool:
+    idx = get_index(key)
+    current_key, _ = map[idx]
     return current_key != key

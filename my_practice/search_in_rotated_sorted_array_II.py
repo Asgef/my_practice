@@ -52,7 +52,7 @@ class Solution:
                 first += 1
                 continue
 
-            if nums[first] <= nums[mid]:
+            if nums[first] < nums[mid]:
                 if nums[first] <= target <= nums[mid]:
                     last = mid - 1
                 else:
