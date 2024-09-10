@@ -70,3 +70,5 @@ def has_collisions(map, key: str) -> bool:
     idx = get_index(key)
     current_key, _ = map[idx]
     return current_key != key
+
+# Хэш таблицы

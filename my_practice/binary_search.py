@@ -41,23 +41,24 @@ def binary_search(sequence, num):
 
 
 # For leetcode
+
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        sequence_len = len(nums)
 
-        if sequence_len == 0:
+        first, last = 0, len(nums) - 1
+
+        if not nums:
             return -1
 
-        first = 0
-        last = sequence_len - 1
-
         while first <= last:
-            middle = (first + last) // 2
+            mid = first + (last - first) % 2
 
-            if nums[middle] == target:
-                return middle
-            elif nums[middle] > target:
-                last = middle - 1
+            if nums[mid] == target:
+                return mid
+            elif target < nums[mid]:
+                last = mid - 1
             else:
-                first = middle + 1
+                first = mid + 1
         return -1
+
+# Бинарный поиск
