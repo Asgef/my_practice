@@ -77,3 +77,5 @@ def quick_sort_2(array: list, reverse: bool = False) -> list:  # noqa F811
             quick_sort_2(lower_arr, reverse) + equal_arr +
             quick_sort_2(higher_arr, reverse)
     )
+
+# Быстрая сортировка
