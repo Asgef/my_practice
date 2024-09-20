@@ -57,31 +57,37 @@
 # # ['Borisovka', 'Belgorod', 'Kursk', 'Kurchatov']
 
 
-def way_to_city(tree, target):
-    if tree[0] == target:
-        return [tree[0]]
+def build_city_routes(node, routes):
+    if len(node) == 1:
+        city = node[0]
+        routes[city] = []
+        return city
 
-    if len(tree) > 1:
-        for subtree in tree[1]:
-            path = way_to_city(subtree, target)
-            if path:
-                return [tree[0]] + path
+    city, neighdbords = node
+    routes[city] = []
 
-    return
+    for tree in neighdbords:
+        neighdbord = build_city_routes(tree, routes)
+        routes[city].append(neighdbord)
+        routes[neighdbord].append(city)
+    return city
 
 
-def build_itinerary(tree, begin, end):
-    path_to_begin = way_to_city(tree, begin)
-    path_to_end = way_to_city(tree, end)
-    general_path = 0
+def search_way(start, finish, path, routes):
+    if start == finish:
+        return path + [finish]
 
-    for bgn, ed in zip(path_to_begin, path_to_end):
-        if bgn == ed:
-            general_path += 1
-        else:
-            break
+    for city in routes[start]:
+        if city in path:
+            continue
+        rest = search_way(city, finish, path + [start], routes)
+        if rest:
+            return rest
 
-    path = path_to_begin[:general_path - 1:-1] + path_to_end[general_path - 1:]
-    return path
 
-# TODO: Требуется переделать решение с применением графов.
+def build_itinerary(tree, start_sity, finish_city):
+    routes = {}  # Список смежностей
+    build_city_routes(tree, routes)
+    return search_way(start_sity, finish_city, [], routes)
+
+# Графы, DFS, обход в глубиу, список смежностей
