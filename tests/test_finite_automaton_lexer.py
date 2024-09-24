@@ -1,36 +1,36 @@
-from my_practice.finite_automaton_lexer import lexer  # , solution
+from my_practice.finite_automaton_lexer import lexer , solution
 
 
-# def test_solution_1():
-#     data = [
-#         '  first second\n',
-#         'hello  my\n',
-#         'what   who   \n\n',
-#     ]
-#
-#     expected = [
-#         'first',
-#         'hello',
-#         'what',
-#     ]
-#
-#     assert lexer(data) == expected
-#
-#
-# def test_solution_2():
-#     data = [
-#         '\n\n  what who   \n',
-#         'hellomy\n',
-#         ' hello who are you\n',
-#     ]
-#
-#     expected = [
-#         'what',
-#         'hellomy',
-#         'hello',
-#     ]
-#
-#     assert lexer(data) == expected
+def test_solution_1():
+    data = [
+        '  first second\n',
+        'hello  my\n',
+        'what   who   \n\n',
+    ]
+
+    expected = [
+        'first',
+        'hello',
+        'what',
+    ]
+
+    assert solution(data) == expected
+
+
+def test_solution_2():
+    data = [
+        '\n\n  what who   \n',
+        'hellomy\n',
+        ' hello who are you\n',
+    ]
+
+    expected = [
+        'what',
+        'hellomy',
+        'hello',
+    ]
+
+    assert solution(data) == expected
 
 
 def test_solution_3():
@@ -46,7 +46,7 @@ def test_solution_3():
         'hello',
     ]
 
-    assert lexer(data) == expected
+    assert solution(data) == expected
 
 
 def test_solution_4():
@@ -62,7 +62,7 @@ def test_solution_4():
         'hello',
     ]
 
-    assert lexer(data) == expected
+    assert solution(data) == expected
 
 
 def test_solution_5():
@@ -78,7 +78,7 @@ def test_solution_5():
         'hello',
     ]
 
-    assert lexer(data) == expected
+    assert solution(data) == expected
 
 
 def test_lexer():

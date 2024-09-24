@@ -17,6 +17,8 @@
 # // ];
 #
 # The solution must be finite automaton-based.
+from django.db.models.expressions import result
+
 from tests.test_prefix_tree_exercise import words
 
 
