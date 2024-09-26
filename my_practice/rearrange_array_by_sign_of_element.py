@@ -26,18 +26,16 @@
 # [1, 2, 3, -3, -1, -2] -> [1, -3, 2, -1, 3, -2]
 
 
-def rearrange_array(nums):
-    positive_idx = 0
-    negative_idx = 1
-    result = [None, None, None, None, None, None]
+def rearrange_array(nums: list) -> list:
+    positive = 0
+    negative = 1
+    result = [None] * len(nums)
 
     for elem in nums:
         if elem > 0:
-            result[positive_idx] = elem
-            positive_idx += 2
-
-        elif elem < 0:
-            result[negative_idx] = elem
-            negative_idx += 2
-
+            result[positive] = elem
+            positive += 2
+        else:
+            result[negative] = elem
+            negative += 2
     return result

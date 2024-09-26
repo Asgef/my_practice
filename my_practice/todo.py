@@ -10,7 +10,8 @@
 # Functionality:
 # 1. create_task(description, tags): Creates and returns a new task dictionary.
 #    Ensure the tags field has no duplicates.
-# 2. add_task(tasks, task): Adds the task to the global task list and returns it.
+# 2. add_task(tasks, task):
+# Adds the task to the global task list and returns it.
 # 3. add_tag_to_task(tasks, task_id, tag): Adds a tag to the task if it's not
 #    already present and returns the updated task list.
 # 4. remove_tag_from_task(tasks, task_id, tag): Removes the specified tag from
@@ -26,7 +27,8 @@
 #
 # Реализуйте абстракцию для работы со списком дел с тегами.
 #
-# Сущность задачи (task) должна быть представлена словарем со следующими ключами:
+# Сущность задачи (task) должна быть представлена словарем
+# со следующими ключами:
 # - description: описание задачи (строка).
 # - completed: статус задачи (выполнена или нет, булево значение).
 # - tags: список тегов (строк), связанных с задачей.
@@ -56,13 +58,25 @@
 #    }
 #
 # add_task(tasks, task1)
-# => [{'id': 1, 'description': 'Task 1', 'completed': False, 'tags': ['tag1', 'tag2']}]
+# => [{
+#     'id': 1, 'description': 'Task 1', 'completed': False, 'tags': [
+#     'tag1', 'tag2'
+# ]
+# }]
 #
 # add_tag_to_task(tasks, 1, 'tag3')
-# => {'id': 1, 'description': 'Task 1', 'completed': False, 'tags': ['tag1', 'tag2', 'tag3']}
+# => {
+#     'id': 1, 'description': 'Task 1', 'completed': False, 'tags': [
+#         'tag1', 'tag2', 'tag3'
+#     ]
+# }
 #
 # remove_tag_from_task(tasks, 1, 'tag1')
-# => {'id': 1, 'description': 'Task 1', 'completed': False, 'tags': ['tag2', 'tag3']}
+# => {
+#     'id': 1, 'description': 'Task 1', 'completed': False, 'tags': [
+#         'tag2', 'tag3'
+#     ]
+# }
 #
 # filter_tasks_by_tags(tasks, ['tag5'])  # []
 
@@ -82,7 +96,7 @@ def create_task(description: str, tags: list) -> dict:
     return result
 
 
-def add_task(tasks: list, task:dict) -> list:
+def add_task(tasks: list, task: dict) -> list:
     tasks.append(task)
     return tasks
 
@@ -102,7 +116,7 @@ def add_tag_to_task(tasks: list, task_id: int, tag: str) -> list:
     return tasks
 
 
-def remove_tag_from_task(tasks: list, task_id: int, tag:str) -> list:
+def remove_tag_from_task(tasks: list, task_id: int, tag: str) -> list:
     if not tasks:
         return tasks
 

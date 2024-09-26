@@ -10,12 +10,14 @@ def test_create_task():
     assert task['completed'] is False
     assert set(task['tags']) == {'tag1', 'tag2'}
 
+
 def test_add_task():
     tasks = []
     task = create_task('Test Task', ['tag1'])
     add_task(tasks, task)
     assert len(tasks) == 1
     assert tasks[0]['description'] == 'Test Task'
+
 
 def test_add_tag_to_task():
     tasks = []
@@ -34,6 +36,7 @@ def test_remove_tag_from_task():
     remove_tag_from_task(tasks, task_id, 'tag1')
     assert 'tag1' not in tasks[0]['tags']
 
+
 def test_mark_task_completed():
     tasks = []
     task = create_task('Test Task', ['tag1'])
@@ -41,6 +44,7 @@ def test_mark_task_completed():
     task_id = task['id']
     mark_task_completed(tasks, task_id)
     assert tasks[0]['completed'] is True
+
 
 def test_filter_tasks_by_tags():
     tasks = []

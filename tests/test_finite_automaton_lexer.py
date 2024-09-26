@@ -1,4 +1,4 @@
-from my_practice.finite_automaton_lexer import lexer , solution
+from my_practice.finite_automaton_lexer import lexer, solution
 
 
 def test_solution_1():
