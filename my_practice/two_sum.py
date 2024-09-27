@@ -36,9 +36,6 @@
 from typing import List
 
 
-# Using table hash - O(n)
-
-
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         passed_elem = {}
@@ -50,5 +47,5 @@ class Solution:
             passed_elem[num] = idx
         return []
 
-#  TODO: Реализовать Двухуказательный метод
+
 # Хэш таблицы.
