@@ -57,7 +57,7 @@
 # # ['Borisovka', 'Belgorod', 'Kursk', 'Kurchatov']
 
 
-def build_city_routes(node: list, routes: dict) -> str:
+def build_city_routes(node: list, routes: dict[str]) -> str:
     if len(node) == 1:
         city = node[0]
         routes[city] = []
@@ -73,7 +73,9 @@ def build_city_routes(node: list, routes: dict) -> str:
     return city
 
 
-def search_way(start: str, finish: str, path: list, routes: dict) -> list:
+def search_way(
+        start: str, finish: str, path: list[str], routes: dict[str]
+) -> list[str]:
     if start == finish:
         return path + [finish]
 
@@ -85,7 +87,7 @@ def search_way(start: str, finish: str, path: list, routes: dict) -> list:
             return rest
 
 
-def build_itinerary(tree: list, start_sity: str, finish_city: str) -> list:
+def build_itinerary(tree: list, start_sity: str, finish_city: str) -> list[str]:
     routes = {}  # Список смежностей
     build_city_routes(tree, routes)
     return search_way(start_sity, finish_city, [], routes)
