@@ -24,7 +24,7 @@
 # всех запланированных совещаниях или нет?
 
 
-def can_attend(schedule):
+def can_attend(schedule: list[tuple[int, int]]) -> bool:
     meetings = sorted(schedule)
     for i in range(1, len(meetings)):
         if meetings[i][0] < meetings[i-1][1]:

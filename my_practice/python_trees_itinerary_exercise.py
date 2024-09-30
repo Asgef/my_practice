@@ -58,6 +58,7 @@
 
 
 def build_city_routes(node: list, routes: dict[str]) -> str:
+    """ Построение списка смежности """
     if len(node) == 1:
         city = node[0]
         routes[city] = []
@@ -76,6 +77,7 @@ def build_city_routes(node: list, routes: dict[str]) -> str:
 def search_way(
         start: str, finish: str, path: list[str], routes: dict[str]
 ) -> list[str]:
+    """ Поиск пути """
     if start == finish:
         return path + [finish]
 
@@ -88,8 +90,9 @@ def search_way(
 
 
 def build_itinerary(tree: list, start_sity: str, finish_city: str) -> list[str]:
+    """ Функция построения маршрута """
     routes = {}  # Список смежностей
     build_city_routes(tree, routes)
     return search_way(start_sity, finish_city, [], routes)
 
-# Графы, DFS, обход в глубиу, список смежностей
+# Графы, DFS, обход в глубину, список смежностей

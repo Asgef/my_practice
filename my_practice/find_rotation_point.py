@@ -16,7 +16,7 @@
 # Пример 2: Вход: nums = [3, 4, 5, 1, 2], Вывод: 3
 
 
-def find_rotation_point(sequence: list) -> int:  # noqa C901
+def find_rotation_point(sequence: list[int]) -> int:  # noqa C901
     if not sequence:
         return - 1
 
