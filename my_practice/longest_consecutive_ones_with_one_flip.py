@@ -23,6 +23,7 @@
 # print(max_consecutive_onesII([1,0,1,0,1,1]))  # Output: 4
 # print(max_consecutive_onesII([1,1,1,0,1,1]))  # Output: 6
 # print(max_consecutive_onesII([1,0,1,1,1,1]))  # Output: 6
+from debugpy.common.timestamp import current
 
 
 # Задача: Самая длинная последовательность единиц с одним переворотом
@@ -54,16 +55,19 @@
 # print(max_consecutive_onesII([1,0,1,1,1,1]))  # Вывод: 6
 
 
-def max_consecutive_onesII(nums):
-    result = 0
+def max_consecutive_onesII(nums: list[int]) -> int:
     current_length = 0
     count_ones_before_flip = 0
+    result = 0
+
     for elem in nums:
         if elem == 1:
             current_length += 1
-        else:  # elem == 0
-            result = max(result, count_ones_before_flip + current_length + 1)
-            count_ones_before_flip = current_length
-            current_length = 0
-    result = max(result, count_ones_before_flip + current_length + 1)
+            continue
+        result = max(result, current_length + count_ones_before_flip + 1)
+        count_ones_before_flip = current_length
+        current_length = 0
+    result = max(result, current_length + count_ones_before_flip + 1)
     return result
+
+# Скользящие окна, flip.
