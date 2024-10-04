@@ -34,7 +34,7 @@
 from collections import Counter
 
 
-def scrabble(string, word):
+def scrabble(string: str, word: str) -> bool:
     char_set = dict(Counter(string.lower()))
     word_set = dict(Counter(word.lower()))
 
@@ -50,3 +50,5 @@ def scrabble(string, word):
 # Можно было сделать ещё короче, если учесть то,
 # как работает вычитание для пары Counter!
 # Хватило бы: return not (Counter(word.lower()) - Counter(string.lower()))
+
+# Вычитание множеств, хеш таблицы.

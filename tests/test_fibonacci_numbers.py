@@ -20,6 +20,7 @@ def test_first_numbers():
     assert next(fib_gen) == 3
     assert next(fib_gen) == 5
 
+
 def test_infinite_sequence():
     fib_gen = gen_fib()
     numbers = [next(fib_gen) for _ in range(10)]

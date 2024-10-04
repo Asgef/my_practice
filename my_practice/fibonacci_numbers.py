@@ -28,6 +28,7 @@ def fib(n):
 
 # Train with a generator
 
+
 def gen_fib():
     current, last = 1, 0
     while True:

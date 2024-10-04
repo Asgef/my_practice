@@ -30,7 +30,7 @@ class Solution:
 
         for elem in strs:
             key = ''.join(sorted(elem))
-            if not key in passed:
+            if key not in passed:
                 passed[key] = []
                 passed[key].append(elem)
             else:

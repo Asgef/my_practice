@@ -23,7 +23,6 @@
 # print(max_consecutive_onesII([1,0,1,0,1,1]))  # Output: 4
 # print(max_consecutive_onesII([1,1,1,0,1,1]))  # Output: 6
 # print(max_consecutive_onesII([1,0,1,1,1,1]))  # Output: 6
-from debugpy.common.timestamp import current
 
 
 # Задача: Самая длинная последовательность единиц с одним переворотом

@@ -65,8 +65,8 @@ def to_rna(dna):
 
     result = []
 
-    for ncltd in dna:
-        result.append(MAPPING[ncltd])
+    for nucleotide in dna:
+        result.append(MAPPING[nucleotide])
 
     return ''.join(result)
 

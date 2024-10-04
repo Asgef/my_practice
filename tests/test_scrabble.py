@@ -7,3 +7,4 @@ def test_scrabble():
     assert scrabble('avjafff', 'java') is True
     assert scrabble('', 'hexlet') is False
     assert scrabble('scriptingjava', 'JavaScript') is True
+    assert scrabble('world', 'world') is True

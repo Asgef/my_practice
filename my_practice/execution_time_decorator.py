@@ -22,7 +22,6 @@ import time
 from time import sleep
 
 
-
 def time_decorator(func):
     def wrapper(*args, **kwargs):
         print(f'Начало выполнения функции {func.__name__}')
@@ -36,6 +35,7 @@ def time_decorator(func):
         )
         return result
     return wrapper
+
 
 @ time_decorator
 def square_root(num):
