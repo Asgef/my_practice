@@ -12,9 +12,13 @@
 
 
 def is_prime(num: int) -> bool:
-    if num < 2:
+    if num == 2:
+        return True
+
+    if num < 2 or num % 2 == 0:
         return False
-    for i in range(2, int(num ** 1/2) + 1):
-        if num % i == 0:
+
+    for el in range(5, int(num ** 1/2) + 1):
+        if num % el == 0:
             return False
     return True

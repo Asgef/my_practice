@@ -41,7 +41,7 @@ def quick_sort(items: list, direction: str = 'asc') -> list:  # noqa C901
         length = right - left + 1
         if length < 2:
             return
-        pivot = array[left]
+        pivot = array[(right + left) // 2]
         split_idx = partition(array, left, right, pivot, comp)
         sort(array, left, split_idx - 1, comp)
         sort(array, split_idx, right, comp)
@@ -50,6 +50,9 @@ def quick_sort(items: list, direction: str = 'asc') -> list:  # noqa C901
     compare = lambda a, b: a < b if direction == 'asc' else a > b  # noqa E731
     sort(cp_items, 0, len(items) - 1, compare)
     return cp_items
+
+
+# A clearer but less efficient version of the function
 
 
 def quick_sort_2(array: list, reverse: bool = False) -> list:  # noqa F811
