@@ -13,7 +13,8 @@
 # Example 1:
 # Input: s = "cbaebabacd", p = "abc"
 # Output: [0,6]
-# Explanation: Substrings at indices 0 ("cba") and 6 ("bac") are anagrams of "abc".
+# Explanation: Substrings at indices 0 ("cba")
+# and 6 ("bac") are anagrams of "abc".
 #
 # Example 2:
 # Input: s = "abab", p = "ab"
