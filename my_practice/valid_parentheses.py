@@ -36,21 +36,6 @@
 # Output: true
 
 
-# class Solution:
-#     def isValid(self, s: str) -> bool:
-#         MAPPING = {
-#             ')': 1, ']': 2, '}': 3,
-#             '(': -1, '[': -2, '{': -3
-#         }
-#         s_data = s.split()
-#         buffer = 0
-#         while s_data:
-#             buffer += MAPPING[s_data.pop()]
-#             if buffer < 0:
-#                 return False
-#
-#         return buffer == 0
-
 class Solution:
     def isValid(self, s: str) -> bool:
         MAPPING = {')': '(', ']': '[', '}': '{'}
@@ -68,3 +53,5 @@ class Solution:
             stack.pop()
 
         return not stack
+
+# Стек.
