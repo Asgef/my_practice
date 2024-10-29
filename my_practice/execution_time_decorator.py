@@ -37,7 +37,7 @@ def time_decorator(func):
     return wrapper
 
 
-@ time_decorator
+@time_decorator
 def square_root(num):
     sleep(1)
     return num ** 0.5
