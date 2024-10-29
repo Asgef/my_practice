@@ -1,4 +1,4 @@
-from my_practice.number_of_Islands import Solution
+from my_practice.number_of_islands import Solution
 
 
 def test_number_of_islands():
