@@ -25,19 +25,19 @@ from hexlet_code.helpers import sorted_array_to_BST
 # ]
 
 
-def solution(items):
-    result = []
+def solution(items: list[int]) -> list[list[int]]:
     tree = sorted_array_to_BST(items)
+    result = []
 
-    def walk(node, acc):
-        if node is None:
-            return acc
-        acc.append(node.value)
-        left_node = walk(node.left, acc.copy())
-        if left_node:
-            result.append(left_node)
-            return
-        walk(node.right, acc.copy())
+    def walk(node, path):
+        if not node.left and not node.right:
+            result.append(path + [node.value])
+
+        if node.left:
+            walk(node.left, path + [node.value])
+        if node.right:
+            walk(node.right, path + [node.value])
+
 
     walk(tree, [])
     return result

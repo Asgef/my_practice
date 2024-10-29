@@ -10,37 +10,37 @@ import random
 import time
 
 
-def retry(attempts=0, delay=0):
-    def wrapper(func):
-        def inner(*args, **kwargs):
-
-            count = attempts
-            while count > 0:
-
-                try:
-                    return func(*args, **kwargs)
-
-                except Exception as e:
-                    print(f'Exeption: {e}, retrying in {delay} seconds...')
-                    time.sleep(delay)
-                    count -= 1
-            return func(*args, **kwargs)
-
-        return inner
-
-    return wrapper
-
-
-# Example usage:
-
-
-@retry(attempts=3, delay=2)
-def unstable_function():
-    if random.choice([True, False]):
-        print("Success!")
-    else:
-        print("Fail!")
-        raise ValueError("Something went wrong")
+# def retry(attempts=0, delay=0):
+#     def wrapper(func):
+#         def inner(*args, **kwargs):
+#
+#             count = attempts
+#             while count > 0:
+#
+#                 try:
+#                     return func(*args, **kwargs)
+#
+#                 except Exception as e:
+#                     print(f'Exeption: {e}, retrying in {delay} seconds...')
+#                     time.sleep(delay)
+#                     count -= 1
+#             return func(*args, **kwargs)
+#
+#         return inner
+#
+#     return wrapper
+#
+#
+# # Example usage:
+#
+#
+# @retry(attempts=3, delay=2)
+# def unstable_function():
+#     if random.choice([True, False]):
+#         print("Success!")
+#     else:
+#         print("Fail!")
+#         raise ValueError("Something went wrong")
 
 
 # unstable_function()
@@ -70,6 +70,7 @@ def unstable_function():
 
 import logging  # noqa E402
 import os  # noqa E402
+from time import sleep
 
 
 def log_calls(file_name, level):
@@ -97,4 +98,4 @@ logfile = os.path.join(
 def sum(a, b):
     return a + b
 
-# print(sum(1, 2))
+print(sum(1, 2))
