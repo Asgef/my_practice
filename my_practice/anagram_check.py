@@ -26,10 +26,10 @@
 def are_anagrams(str1, str2):
     count_str1 = {}
     count_str2 = {}
-    for i in str1:
-        count_str1[i.lower()] = count_str1.get(i, 0) + 1
+    for i in str1.lower():
+        count_str1[i] = count_str1.get(i, 0) + 1
 
-    for i in str2:
-        count_str2[i.lower()] = count_str2.get(i, 0) + 1
+    for i in str2.lower():
+        count_str2[i] = count_str2.get(i, 0) + 1
 
     return count_str1 == count_str2
