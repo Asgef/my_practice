@@ -40,28 +40,28 @@ class Solution:
         if len(nums) == 1:
             return nums[0] == target
 
-        first, last = 0, len(nums) - 1
+        left, right = 0, len(nums) - 1
 
-        while first <= last:
-            mid = first + (last - first) // 2
+        while left <= right:
+            mid = left + (right - left) // 2
 
             if nums[mid] == target:
                 return True
 
-            if nums[first] == nums[mid]:
-                first += 1
-                continue
+            if nums[left] < nums[mid]:
+                if nums[left] <= target < nums[mid]:
+                    right = mid - 1
+                else:
+                    left = mid + 1
 
-            if nums[first] < nums[mid]:
-                if nums[first] <= target <= nums[mid]:
-                    last = mid - 1
+            elif nums[left] > nums[mid]:
+                if nums[mid] < target <= nums[right]:
+                    left = mid + 1
                 else:
-                    first = mid + 1
+                    right = mid - 1
+
             else:
-                if nums[mid] <= target <= nums[last]:
-                    first = mid + 1
-                else:
-                    last = mid - 1
+                left += 1
 
         return False
 

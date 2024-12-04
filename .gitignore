@@ -10,6 +10,7 @@ __pycache__/
 *.pyc
 *.iml
 *.ipynb
+*.nnb
 
 .idea/*.iml
 coverage.xml

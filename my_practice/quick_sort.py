@@ -8,6 +8,8 @@
 # solution([10, 20, 0, -1]) # Returns [-1, 0, 10, 20]
 # solution([]) # Returns []
 # solution([10, 20, 0, -1], 'desc') # Returns [20, 10, 0, -1]
+from numpy.random import default_rng
+from pandas import pivot
 
 
 # Задача: Реализация алгоритма быстрой сортировки

@@ -19,7 +19,7 @@
 # fib(10)  # 55
 
 
-def fib(n):
+def fib(n: int) -> int:
     if n == 0:
         return n
     elif n < 3:
@@ -36,3 +36,4 @@ def gen_fib():
         current, last = current + last, current
 
 # Fibonacci, generator, infinite iterator.
+

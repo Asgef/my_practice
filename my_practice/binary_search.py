@@ -44,21 +44,21 @@ def binary_search(sequence, num):
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-
-        first, last = 0, len(nums) - 1
-
         if not nums:
             return -1
 
-        while first <= last:
-            mid = first + (last - first) % 2
+        left, right = 0, len(nums) - 1
+
+        while left <= right:
+            mid = left + (right - left) // 2
 
             if nums[mid] == target:
                 return mid
-            elif target < nums[mid]:
-                last = mid - 1
+
+            if target < nums[mid]:
+                right = mid - 1
             else:
-                first = mid + 1
+                left = mid + 1
         return -1
 
 # Бинарный поиск

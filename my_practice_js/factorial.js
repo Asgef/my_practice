@@ -19,4 +19,4 @@ const factorial = (n) => {
     }
 }
 
-factorial(5)
+console.log(factorial(5))
