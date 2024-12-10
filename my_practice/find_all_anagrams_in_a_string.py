@@ -36,6 +36,6 @@ class Solution:
 
         for idx in range(len(s) - len(p) + 1):
             word = s[idx: idx + len(p)]
-            if not Counter(word) - Counter(p):
+            if Counter(word) == Counter(p):
                 result.append(idx)
         return result
