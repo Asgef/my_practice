@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS customers;
+
 CREATE TABLE customers (
     customer_id SERIAL PRIMARY KEY,
     customer_name VARCHAR(100) NOT NULL

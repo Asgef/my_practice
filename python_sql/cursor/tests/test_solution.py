@@ -1,4 +1,4 @@
-from solution import get_order_sum
+from python_sql.cursor.src.solution import get_order_sum
 
 
 def test_solution(db_transaction):

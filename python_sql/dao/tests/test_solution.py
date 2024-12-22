@@ -1,5 +1,5 @@
-from models import Course, Lesson
-from solution import save_course, find_course, save_lesson, find_lesson, get_course_lessons
+from python_sql.dao.src.models import Course, Lesson
+from python_sql.dao.src.solution import save_course, find_course, save_lesson, find_lesson, get_course_lessons
 
 
 def test_solution(db_transaction):

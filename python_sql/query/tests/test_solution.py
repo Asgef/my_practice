@@ -1,4 +1,4 @@
-from solution import batch_insert, get_all_products
+from python_sql.query.src.solution import batch_insert, get_all_products
 import pytest
 from decimal import Decimal
 

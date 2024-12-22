@@ -4,6 +4,7 @@ dist/
 **/.idea/
 __pycache__/
 **/.vagrant/
+**/.env
 
 *.log
 *.whl

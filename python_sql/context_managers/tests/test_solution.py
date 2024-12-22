@@ -1,4 +1,4 @@
-from solution import get_all_cars
+from python_sql.context_managers.src.solution import get_all_cars
 
 
 def test_solution(db_transaction):

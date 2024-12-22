@@ -1,4 +1,4 @@
-from solution import get_latest_posts, add_comment, create_post
+from python_sql.transaction.src.solution import get_latest_posts, add_comment, create_post
 
 
 def test_solution(db_transaction):

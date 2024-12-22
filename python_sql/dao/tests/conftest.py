@@ -1,6 +1,13 @@
 import pytest
 import psycopg2
 import psycopg2.extras
+import dotenv
+import os
+
+
+dotenv.load_dotenv()
+
+DB_PASS = os.getenv('DB_PASS')
 
 
 @pytest.fixture(scope="session")
