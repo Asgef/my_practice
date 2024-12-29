@@ -36,4 +36,3 @@ def gen_fib():
         current, last = current + last, current
 
 # Fibonacci, generator, infinite iterator.
-

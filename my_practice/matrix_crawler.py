@@ -35,14 +35,13 @@
 # - The function should work with any square matrix, sizes 1x1 and up.
 # - The returned list should contain elements ordered in a counter-
 #   clockwise spiral.
-from decorator import append
 
 
 def matrix_is_square(matrix: list[list[int]]) -> bool:
     return len(matrix) == len(matrix[0])
 
 
-def matrix_crawler(matrix: list[list[int]]) -> list[int]:
+def matrix_crawler(matrix: list[list[int]]) -> list[int]:  # noqa C901
     if len(matrix) == 1:
         return matrix[0]
     if not matrix or not matrix_is_square(matrix):

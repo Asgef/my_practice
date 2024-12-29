@@ -29,7 +29,7 @@ from typing import List
 
 
 class Solution:
-    def removeInvalidParentheses(self, s: str) -> List[str]:
+    def removeInvalidParentheses(self, s: str) -> List[str]:  # noqa C901
         def is_valid(brackets) -> bool:
             balance = 0
             for bracket in brackets:

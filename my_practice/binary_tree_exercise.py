@@ -38,6 +38,5 @@ def solution(items: list[int]) -> list[list[int]]:
         if node.right:
             walk(node.right, path + [node.value])
 
-
     walk(tree, [])
     return result

@@ -4,8 +4,10 @@
 #
 #
 # Task: "Rebuilding a Tree Relative to a Given Root"
-# Implement the function `transform()` that rebuilds a tree such that the specified
-# node becomes the new root while preserving the relationships between all nodes.
+# Implement the function `transform()` that rebuilds a tree such that
+# the specified
+# node becomes the new root while preserving
+# the relationships between all nodes.
 #
 #
 # Example:
@@ -66,4 +68,3 @@ def transform(tree, node):
     adjacency_list = {}
     tree_to_graph(tree, adjacency_list)
     return tree_builder(node, adjacency_list, set())
-

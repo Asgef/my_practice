@@ -1,6 +1,7 @@
 import unittest
 from my_practice.remove_invalid_parentheses import Solution
 
+
 class TestRemoveInvalidParentheses(unittest.TestCase):
     def setUp(self):
         self.solution = Solution()

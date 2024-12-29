@@ -6,8 +6,8 @@
 # Декоратор с аргументами
 
 
-import random
-import time
+# import random
+# import time
 
 
 # def retry(attempts=0, delay=0):
@@ -70,7 +70,6 @@ import time
 
 import logging  # noqa E402
 import os  # noqa E402
-from time import sleep
 
 
 def log_calls(file_name, level):
@@ -97,5 +96,6 @@ logfile = os.path.join(
 @log_calls(logfile, "INFO")
 def sum(a, b):
     return a + b
+
 
 print(sum(1, 2))
