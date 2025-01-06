@@ -1,25 +1,25 @@
-from my_practice.trees_transformer import transform
+from my_practice.trees_transformer import transform, tree_to_graph
 from hexlet.graphs import sort_tree
 
 
-# def test_tree_to_graph():
-#     tree = ['A', [
-#         ['B', [['D']]],
-#         ['C', [['E'], ['F']]],
-#     ]]
-#     graph = {}
-#     tree_to_graph(tree, graph)
-#     expected = {
-#         'A': ['B', 'C'],
-#         'B': ['D', 'A'],
-#         'C': ['E', 'F', 'A'],
-#         'D': ['B'],
-#         'E': ['C'],
-#         'F': ['C'],
-#     }
-#     assert graph == expected
-#
-#
+def test_tree_to_graph():
+    tree = ['A', [
+        ['B', [['D']]],
+        ['C', [['E'], ['F']]],
+    ]]
+    graph = {}
+    tree_to_graph(tree, graph)
+    expected = {
+        'A': ['B', 'C'],
+        'B': ['D', 'A'],
+        'C': ['E', 'F', 'A'],
+        'D': ['B'],
+        'E': ['C'],
+        'F': ['C'],
+    }
+    assert graph == expected
+
+
 SIMPLE_TREE = ['A', [
     ['B', [
         ['D'],

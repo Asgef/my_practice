@@ -38,33 +38,45 @@
 #
 
 
-def tree_to_graph(node: list, paths: dict) -> str:
+import logging
+
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+
+logger = logging.getLogger(__name__)
+
+
+def tree_to_graph(node: list, path: dict) -> str:
     if len(node) == 1:
-        point = node[0]
-        paths[point] = []
-        return point
-
-    point, children = node
-    paths[point] = []
+        value_node = node[0]
+        path[value_node] = []
+        return value_node
+    value_node, children = node
+    path[value_node] = []
     for child in children:
-        neighbour = tree_to_graph(child, paths)
-        paths[point].append(neighbour)
-        paths[neighbour].append(point)
-    return point
+        neighbor = tree_to_graph(child, path)
+        path[value_node].append(neighbor)
+        path[neighbor].append(value_node)
+    return value_node
 
 
-def tree_builder(start_node, graph, visited):
+def graph_to_tree(start_node: str, path: dict, visited: set) -> list:
     visited.add(start_node)
     children = []
-    for child in graph[start_node]:
-        if child not in visited:
-            children.append(list(tree_builder(child, graph, visited)))
+    for neighbour in path[start_node]:
+        if neighbour not in visited:
+            children.append(graph_to_tree(neighbour, path, visited))
     if children:
         return [start_node, children]
     return [start_node]
 
 
-def transform(tree, node):
+def transform(tree: list[str, list], node: str) -> list:
     adjacency_list = {}
     tree_to_graph(tree, adjacency_list)
-    return tree_builder(node, adjacency_list, set())
+    new_tree = graph_to_tree(node, adjacency_list, set())
+    return new_tree
