@@ -26,7 +26,7 @@
 # [1, 2, 3, -3, -1, -2] -> [1, -3, 2, -1, 3, -2]
 
 
-def rearrange_array(nums: list) -> list:
+def rearrange_array(nums: list) -> list[int]:
     positive = 0
     negative = 1
     result = [None] * len(nums)
