@@ -20,9 +20,29 @@
 
 from typing import List
 from collections import Counter
+import heapq
 
+
+# class Solution:
+#     def topKFrequent(self, words: List[str], k: int) -> List[str]:
+#         data = list(Counter(words).items())
+#         data.sort(key=lambda x: (-x[1], x[0]))
+#         return [elem[0] for elem in data[:k]]
+
+
+# Применим Кучу
 
 class Solution:
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
-        data = sorted(Counter(words).items(), key=lambda x: (-x[1], x[0]))
-        return [elem[0] for elem in data[:k]]
+        data = Counter(words)
+        heap = []
+        result = []
+
+        for word, count in data.items():
+            heapq.heappush(heap, (-count, word))
+
+        for _ in range(k):
+            _, word = heapq.heappop(heap)
+            result.append(word)
+
+        return result
