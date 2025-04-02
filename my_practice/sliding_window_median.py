@@ -39,28 +39,33 @@
 # Output: [2.00000,3.00000,3.00000,3.00000,2.00000,3.00000,2.00000]
 
 
+import bisect
 from typing import List
 
 
 class Solution:
     def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
-        range_idx = range(len(nums))
 
-        start = 0
-        end = start + k - 1
-        result = []
+        memory, left, res = [], 0, []
 
-        if end not in range_idx:
-            return result
+        for right, cur_el in enumerate(nums):
+            bisect.insort(memory, cur_el)
 
-        while end in range_idx:
-            slice_window = sorted(nums[start:end + 1])
-            if k % 2 != 0:
-                result.append(float(slice_window[k // 2]))
-            else:
-                result.append(
-                    (slice_window[(k // 2) - 1] + slice_window[k // 2]) / 2
-                )
-            start += 1
-            end += 1
-        return result
+            if right - left + 1 == k:
+
+                if k % 2 != 0:
+                    res.append(float(memory[k // 2]))
+                else:
+                    res.append(
+                        (memory[(k // 2) - 1] + memory[k // 2]) / 2
+                    )
+
+                idx_left = bisect.bisect_left(memory, nums[left])
+                memory.pop(idx_left)
+
+                left += 1
+
+        return res
+
+# Скользящее окно, бинарный поиск, две точки, two pointers, sliding window
+# binary search.
