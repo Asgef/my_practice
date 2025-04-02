@@ -69,4 +69,4 @@ def max_consecutive_onesII(nums: list[int]) -> int:
     result = max(result, current_length + count_ones_before_flip + 1)
     return result
 
-# Скользящие окна, flip.
+# Скользящее окно, две точки, flip, two pointers, sliding window.
