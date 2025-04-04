@@ -45,27 +45,28 @@ from typing import List
 
 class Solution:
     def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
+        left = 0
+        window, result = [], []
 
-        memory, left, res = [], 0, []
+        if len(nums) < k:
+            return result
 
         for right, cur_el in enumerate(nums):
-            bisect.insort(memory, cur_el)
+            bisect.insort(window, cur_el)
 
-            if right - left + 1 == k:
-
+            if len(window) == k:
                 if k % 2 != 0:
-                    res.append(float(memory[k // 2]))
+                    result.append(float(window[k // 2]))
                 else:
-                    res.append(
-                        (memory[(k // 2) - 1] + memory[k // 2]) / 2
+                    result.append(
+                        (window[(k // 2) - 1] + window[k // 2]) / 2
                     )
 
-                idx_left = bisect.bisect_left(memory, nums[left])
-                memory.pop(idx_left)
-
+                idx = bisect.bisect_left(window, nums[left])
+                window.pop(idx)
                 left += 1
+        return result
 
-        return res
 
 # Скользящее окно, бинарный поиск, две точки, two pointers, sliding window
 # binary search.
