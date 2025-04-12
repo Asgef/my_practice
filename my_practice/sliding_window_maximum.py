@@ -26,14 +26,45 @@
 
 
 from typing import List
+from collections import deque
+
+
+# class Solution:
+#     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+#         result = []
+#         window = deque()
+#         left, right = 0, 0
+#
+#         while right < len(nums):
+#             while window and nums[window[-1]] < nums[right]:
+#                 window.pop()
+#
+#             window.append(right)
+#
+#             if left > window[0]:
+#                 window.popleft()
+#
+#             if right + 1 >= k:
+#                 result.append(nums[window[0]])
+#                 left += 1
+#             right += 1
+#         return result
 
 
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         result = []
+        q = deque()
         left = 0
 
-        for right in range(k, len(nums) + 1):
-            result.append(max(nums[left : right]))
-            left += 1
+        for right in range(len(nums)):
+            while q and nums[right] > nums[q[-1]]:
+                q.pop()
+            q.append(right)
+
+            if left > q[0]:
+                q.popleft()
+            if right + 1 >= k:
+                result.append(nums[q[0]])
+                left += 1
         return result
