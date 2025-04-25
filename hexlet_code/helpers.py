@@ -67,3 +67,12 @@ def linkedlist_to_list(node):
         result.append(node.value)
         node = node.next
     return result
+
+
+def build_BinaryTree(data: list, index: int = 0) -> BinaryTreeNode | None:
+    if index >= len(data) or data[index] is None:
+        return None
+    node = BinaryTreeNode(data[index])
+    node.left = build_BinaryTree(data, 2 * index + 1)
+    node.right = build_BinaryTree(data, 2 * index + 2)
+    return node
