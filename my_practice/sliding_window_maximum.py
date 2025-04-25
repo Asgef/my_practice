@@ -68,3 +68,6 @@ class Solution:
                 result.append(nums[q[0]])
                 left += 1
         return result
+
+
+# sliding window, two pointers, queue
